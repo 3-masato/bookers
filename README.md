@@ -1,24 +1,18 @@
-# README
+# Bookers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Bookers** は、Railsアプリケーション作成の1つ目の課題です。
 
-Things you may want to cover:
+## 基本機能
 
-* Ruby version
+- 読んだ本のタイトルと感想を投稿できます。
+- 投稿された内容が一覧で表示されます。
+- 投稿したタイトルと感想を編集できます。
+- 投稿した内容を削除できます。
+- 空白で新規投稿及び編集ができないようバリデーションチェックがあります。
+- 新規投稿や編集が成功及び失敗したときにメッセージを表示します。
+- 失敗時には該当箇所にメッセージを表示します。
 
-* System dependencies
+## 注意
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 一部、新しいCSS擬似クラスである`:is()`を使用しています。そのため、古いブラウザなどではレイアウトが崩れる可能性があります。
+- 今回はレスポンシブ対応をスキップしています。
