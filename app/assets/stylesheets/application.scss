@@ -23,9 +23,6 @@
 :root {
   --base-color: #f3f3f3;
   --text-color: #0c0c0c;
-  --primary-color: #DCE6E6;
-  --secondary-color: #E6EFDF;
-  --tertiary-color: #EFE1D1;
 }
 
 body {
@@ -107,7 +104,7 @@ tr :is(th, td) {
   :is(input[type="button"], input[type="submit"], button) {
     font-size: 1rem;
     font-weight: bold;
-    background-color: var(--tertiary-color);
+    background-color: #c7d2fe;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
@@ -129,7 +126,27 @@ tr :is(th, td) {
     border: none;
 
     label {
+      width: 2rem;
+      display: inline-block;
+      margin: 2px 0;
+      font-size: 1rem;
       font-weight: bold;
+    }
+
+    .errors {
+      display: inline-flex;
+      margin-left: 1rem;
+      color: #dc2626;
+
+      &::before {
+        content: "⚠";
+        margin-right: 0.25em;
+      }
+
+      .message + .message::before {
+        content: " , ";
+        margin-right: 0.25em;
+      }
     }
   }
 }
@@ -142,7 +159,7 @@ tr :is(th, td) {
   margin-top: 40px;
 }
 
-.flash-message {
+.message-box {
   font-size: 0.94rem;
   margin: 1em 0;
   padding: 0.75em 1em;
@@ -153,6 +170,15 @@ tr :is(th, td) {
 
     &::before {
       content: "✔";
+      margin-right: 0.5em;
+    }
+  }
+
+  &.error {
+    background-color: #fecaca;
+
+    &::before {
+      content: "❌";
       margin-right: 0.5em;
     }
   }

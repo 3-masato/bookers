@@ -1,16 +1,32 @@
 <h2>Editting Book</h2>
 <article class="post">
   <% if @book.errors.any? %>
-    <%= @book.errors.count %> errors prohibited this book from being saved:
+    <div class="message-box error">
+      Could not save due to <%= @book.errors.count %> errors.
+    </div>
   <% end %>
   <%= form_with model: @book, class: "post-form" do |f| %>
     <fieldset>
       <label>Title</label>
+        <% if @book.errors[:title].any? %>
+          <span class="errors">
+            <% @book.errors[:title].each do |message| %>
+              <span class="message"><%= message %></span>
+            <% end %>
+          </span>
+        <% end %>
       <%= f.text_field :title %>
     </fieldset>
 
     <fieldset>
       <label>Body</label>
+        <% if @book.errors[:body].any? %>
+          <span class="errors">
+            <% @book.errors[:body].each do |message| %>
+              <span class="message"><%= message %></span>
+            <% end %>
+          </span>
+        <% end %>
       <%= f.text_area :body %>
     </fieldset>
 
