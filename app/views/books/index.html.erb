@@ -1,10 +1,10 @@
 <h1>Books</h1>
-<article class="posts">
+<article>
   <% if @books.all.count == 0 %>
     <p>No books shared.<br>
     Share your thoughts on the books you have read!</p>
   <% else %>
-    <table>
+    <table class="books-table">
       <thead>
         <tr>
           <th>Title</th>
@@ -28,7 +28,7 @@
 </article>
 
 <h2>New book</h2>
-<article class="post">
+<article>
   <% if @book.errors.any? %>
     <div class="message-box error">
       Could not save due to <%= @book.errors.count %> errors.

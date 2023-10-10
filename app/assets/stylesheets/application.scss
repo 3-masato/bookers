@@ -23,11 +23,12 @@
 :root {
   --base-color: #f3f3f3;
   --text-color: #0c0c0c;
+  --base-font-family: ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, Meiryo, sans-serif;
 }
 
 body {
   font-size: 15px;
-  font-family: ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, Meiryo, sans-serif;
+  font-family: var(--base-font-family);
   display: flex;
   justify-content: center;
   color: var(--text-color);
@@ -59,29 +60,36 @@ p {
   line-height: 1.7;
 }
 
-table {
+article {
+  padding: 0 36px;
+}
+
+.books-table {
   width: 100%;
   border-collapse: collapse;
-}
 
-thead tr {
-  border-bottom: 1px solid #9c9c9c;
-}
-
-tbody tr {
-  border-bottom: 1px solid #acacac;
-}
-
-tr :is(th, td) {
-  padding: 0.5em 8px;
-
-  &:first-of-type {
-    width: 24%;
+  thead tr {
+    border-bottom: 1px solid #9c9c9c;
   }
-  &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
-    width: 4%;
-    font-size: 0.9em;
-    text-align: center;
+
+  tbody tr {
+    border-bottom: 1px solid #acacac;
+  }
+
+  :is(th, td) {
+    padding: 0.5em 8px;
+
+    &:first-of-type {
+      width: 24%;
+    }
+
+    &:nth-of-type(3),
+    &:nth-of-type(4),
+    &:nth-of-type(5) {
+      width: 4%;
+      font-size: 0.9em;
+      text-align: center;
+    }
   }
 }
 
@@ -117,8 +125,8 @@ tr :is(th, td) {
     }
 
     &:active {
-      transition-duration: 80ms;
       filter: saturate(0.5);
+      transition-duration: 80ms;
     }
   }
 
@@ -143,16 +151,13 @@ tr :is(th, td) {
         margin-right: 0.25em;
       }
 
+      /* 複数のエラーメッセージが出たときに`,`で区切る */
       .message + .message::before {
         content: " , ";
         margin-right: 0.25em;
       }
     }
   }
-}
-
-.post {
-  padding: 0 36px;
 }
 
 .actions {
@@ -165,8 +170,11 @@ tr :is(th, td) {
   padding: 0.75em 1em;
   border-radius: 2px;
 
-  &.notice {
-    background-color: #bbf7d0;
+  --bg-color-success: #bbf7d0;
+  --bg-color-error: #fecaca;
+
+  &.success {
+    background-color: var(--bg-color-success);
 
     &::before {
       content: "✔";
@@ -175,7 +183,7 @@ tr :is(th, td) {
   }
 
   &.error {
-    background-color: #fecaca;
+    background-color: var(--bg-color-error);
 
     &::before {
       content: "❌";
